@@ -1,0 +1,19 @@
+<html>
+	<head>
+	</head>
+	<body>
+
+	<h1>Clave para descifrar el contrato</h1>
+	
+	<div class = "wideRow"> 
+	<p><%= passwordUser %></p>
+	</div>
+
+	<br/>
+	<br/>
+
+	<form action="/contracts/<%= userId %>/signatures/new" method="POST">
+                <button class="button" type="submit" name="volver" value="volver" class="btn-link">Volver</button>
+    </form>
+	</body>
+</html>

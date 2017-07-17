@@ -1,0 +1,137 @@
+body {
+    min-width: 320px;
+    min-height: 100vH;
+    padding-top: 50px;
+    overflow-x: hidden;
+    background: 0 0;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #4169E1;
+}
+
+body {
+    font-family: benton-sans,"Helvetica Neue",helvetica,arial,sans-serif;
+}
+#list {
+    padding: 20px 0;
+}
+#page {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2px auto;
+    padding: 0px;
+}
+
+.main {
+    flex: 1 100%;
+    border: 1px solid #000080;
+    padding: 2px;
+    margin: 1px;
+    background: #FFFFFF;
+}
+
+#mainHeader {
+    text-align: center;
+}
+
+#mainHeader h1 {
+    margin: 8px;
+}
+
+#mainNav {
+    text-align: center;
+}
+
+#mainNav a {
+    margin: 5px 5px;
+    
+}
+
+#mainSection {
+    padding: 20px;
+    text-align: left;
+}
+
+#mainFooter {
+    text-align: center;
+}
+#qrcode {
+  width:160px;
+  height:160px;
+  margin-top:15px;
+}
+
+
+a {
+    color: #4169E1;
+    font-size: 14px;
+    margin: 5px 5px;
+}
+p {
+    font-size: 18px;
+}
+
+h1 {
+    color: #000080;
+    font-size: 24px;
+}
+
+th, td {
+    text-align:left;
+    border-bottom: 1px solid #FFFFFF;
+    text-decoration-color: #000080;
+    font-size: 18px;
+}
+
+.right {
+    float: right;
+}
+
+.stars {
+    float: left;
+    clear: both;
+}
+
+/* ------------------------- */
+
+.wideRow {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: stretch;
+    font-size: 18px;
+}
+
+.wideRow .itemNarrow {
+    flex: 0 auto;
+    margin: 0px 5px;
+    font-size: 18px;
+}
+
+.wideRow .itemWide {
+    flex: 1 auto;
+    margin: 0px 5px;
+    font-size: 18px;
+}
+.button { background-color: #4169E1; /* Green */
+          border: none;
+          color: white;
+          padding: 10px 24px;
+          text-align: center;
+          text-decoration: none;
+          text-decoration-color: #FFFFFF;
+          display: inline-block;
+          font-size: 16px}
+.button2 { background-color: #4169E1; /* Green */
+          border: none;
+          color: white;
+          padding: 6px 18px;
+          text-align: center;
+          text-decoration: none;
+          text-decoration-color: #FFFFFF;
+          display: inline-block;
+          font-size: 16px}
+
+

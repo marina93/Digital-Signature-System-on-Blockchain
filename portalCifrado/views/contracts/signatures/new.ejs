@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="../../../javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="../../../javascripts/qrcode.js"></script>
+<script type="text/javascript" src="../../../javascripts/qrcode.min.js"></script>
+</head>
+<body>
+<table>
+
+    <h1> Contrato <%= contractId %> </h1>
+
+    <h2> Añadir nuevo participante </h2>
+
+    <% for (var i in names ) { %>
+    <div class = "wideRow">    
+    <tr>
+        <td>
+           <p> <input type="checkbox" onclick= "check()" name="ch[i]" id="myCheck" value= <%= names[i] %> /> <%= names[i] %> </p>
+        
+        
+          <p>  <label for = "signature" class="itemNarrow">Firma</label>
+            <input type="text" id="signature" name="signature" value=""/> </p>
+        
+        <form action="/contracts/<%= contractId %>/signatures/new/showKey" method="POST">
+                <button class="button" type="submit" name="showKey" value="showKey" class="btn-link">Obtener clave</button>
+                <input type="hidden" name="userId" value= <%= names[i] %> >
+                <input type="hidden" name="address" value= <%= address %> >
+        </form>
+        </td>
+    </tr>
+    </div>
+
+    <% } %>
+</table>
+
+
+<p><%= hash %></p>
+
+<input id="text" type="hidden" value= <%= url %> style="width:80%" />
+
+<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<form action="/contracts/<%= contractId %>" method="POST">
+                <button class="button" type="submit" name="add" value="add" class="btn-link">Añadir participante</button>
+                <input type="hidden" name="contractId" value= <%= contractId %> >
+                <input type="hidden" name="descripcion" value= <%= descripcion %> >
+                <input type="hidden" name="hash" value= <%= hash %> >
+                <input type="hidden" name="address" value= <%= address %> >
+                <input type="hidden" name="participante" id="participante" value= participante >
+                <input type="hidden" name="cHash" id="cHash" value= cHash >
+                <input type="hidden" name="p" id="p" value= "1">
+                
+</form>
+</body>
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    width : 150,
+    height : 150
+});
+
+function makeCode () {      
+    var elText = document.getElementById("text");
+    
+    if (!elText.value) {
+        alert("Input a text");
+        elText.focus();
+        return;
+    }
+    
+    qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+    on("blur", function () {
+        makeCode();
+    }).
+    on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
+</script>
+
+<script>
+function check() {
+    document.getElementById("myCheck").checked = true;
+    var participante = document.getElementById("myCheck").value;
+    document.getElementById("participante").value= participante;
+
+    var cHash = document.getElementById("signature").value;
+    document.getElementById("cHash").value = cHash;
+
+}
+
+function uncheck() {
+    document.getElementById("myCheck").checked = false;
+}
+</script>
+
+</html>
+

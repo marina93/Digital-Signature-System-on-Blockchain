@@ -1,0 +1,54 @@
+<h1>
+    Contrato <%= info[0] %>
+</h1>
+
+<div id = "list">
+
+<table>
+    <tr>
+        <th>
+            Código
+        </th>
+        <td>
+            <%= info[0] %>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Descripción
+        </th>
+        <td>
+            <%= info[2] %>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hash
+        </th>
+        <td>
+            <%= info[1] %>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Participantes
+        </th>
+        <td>
+            <p><%= participants %></p>
+        </td>
+    </tr>
+</table>
+</div>
+
+
+<form action="/contracts/<%= userId %>/signatures/new" method="POST">
+                <button class="button" type="submit" name="participants" value="participants" class="btn-link">Nuevo participante</button>
+                <input type="hidden" name="contractId" value= <%= info[0] %> >
+                <input type="hidden" name="descripcion" value= <%= info[2] %> >
+                <input type="hidden" name="hash" value= <%= info[1] %> >
+                <input type="hidden" name="address" value= <%= address %> >
+
+</form>
+
+
+

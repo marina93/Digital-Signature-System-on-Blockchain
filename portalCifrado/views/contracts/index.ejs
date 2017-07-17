@@ -1,0 +1,33 @@
+
+<h1>
+    Contratos
+</h1>
+
+
+<table id="contratos">
+
+<% if (length > 0)  {%>
+
+	<% for (var i in contratos ) { %>
+
+    <tr>
+        <div>
+        <td>
+            <p><%= contratos[i][1] %></p>
+        </td>
+        <td>
+        	<form action="/contracts/<%= contratos[i][1] %>" method="POST">
+ 				<button class = "button2" type="submit" name="ver" value="ver" class="btn-link">Ver</button>
+ 				<input type="hidden" name="contractId" value= <%= contratos[i][1] %> >
+	            <input type="hidden" name="address" value= <%= contratos[i][0] %> >
+                <input type="hidden" name="participante" value="" >
+                <input type="hidden" name="p" value="0" >
+			</form>
+        </td>
+        </div>
+    </tr>
+    <% } %>
+<% } %>
+</table>
+
+<a href="/users/<%=session.user.id%>/contracts/new"><button class="button" type="button">Crear nuevo contrato</button></a>
